@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+from __future__ import with_statement
 
 import sys
 from os import path
@@ -26,6 +27,9 @@ class EzElement(Element):
         Element.__init__(self, tag)
 
     def __setitem__(self, tag, value):
+        if value is None:
+            return
+
         child = Element(tounicode(tag))
 
         if isinstance(value, basestring):
@@ -37,43 +41,68 @@ class EzElement(Element):
             for key, val in value.items():
                 child.setAttribute(tounicode(key), tounicode(val))
         else:
-            raise Exception("Ohno!")
+            raise Exception("Ohno! I didn't expect %r" %(value, ))
 
         self.appendChild(child)
 
 
-class Channel(EzElement):
-    def __init__(self):
-        EzElement.__init__(self, "channel")
+class Podcast(object):
+    def __init__(self, dir):
+        self.dir = path.realpath(dir)
+        self.title = path.basename(self.dir)
 
-    def add_item(self, file):
-        audio = MP3(file, ID3=EasyID3)
+    def _find_files(self):
+        yield "test.mp3"
 
-        def val(x):
-            if isinstance(x, list) and len(x) > 0:
-                x = x[0]
-            return x
+    def _abs_path(self, file):
+        file = path.realpath(file)
+        if not file.startswith(self.dir):
+            raise Exception("%r is outside of %r" %(file, self.dir))
+        if not path.exists(file):
+            raise Exception("%r doesn't exist." %(file, ))
+        return file
+
+    def _rel_path(self, file):
+        file = self._abs_path(file)
+        return file[len(self.dir)+1:]
+
+    def file2item(self, baseurl, file):
+        audio = MP3(self._abs_path(file), ID3=EasyID3)
+        def val(key):
+            if key not in audio:
+                return None
+            val = audio[key]
+            if isinstance(val, list) and len(val) > 0:
+                val = val[0]
+            return val
 
         item = EzElement("item")
-        item["title"] = val(audio["title"]) or path.basename(file)
-        item["itunes:author"] = val(audio["artist"]) or None
-        item["itunes:subtitle"] = val(audio["album"]) or None
+        item["title"] = val("title") or path.basename(file)
+        item["itunes:author"] = val("artist") or None
+        item["itunes:subtitle"] = val("album") or None
         item["itunes:duration"] = seconds2duration(audio.info.length)
-        item["guid"] = file
-        item["enclosure"] = {"url": "file/" + file}
+        item["guid"] = self._abs_path(file)
+        item["enclosure"] = {"url": baseurl + self._rel_path(file)}
 
-        self.appendChild(item)
+        return item
 
-class Podcast(object):
-    title = "Some Podcast"
+    def iter_file(self, file):
+        file = self._abs_path(file)
+        def iterfile():
+            with open(file) as f:
+                data = f.read(1024)
+                while data:
+                    yield data
+                    data = f.read(1024)
+        return iterfile()
 
-    def send_xml(self, environ):
-        return "200 Ok", [("Content-type", "text/plain")], [self.xml()]
+    def xml(self, baseurl):
+        channel = EzElement("channel")
+        channel["title"] = self.title
 
-    def xml(self):
-        channel = Channel()
-        channel["title"] = "Some Podcast"
-        channel.add_item("test.mp3")
+        for file in self._find_files():
+            item = self.file2item(baseurl, file)
+            channel.appendChild(item)
 
         rss = Element("rss")
         rss.setAttribute("xmlns:itunes", "http://www.itunes.com/dtds/podcast-1.0.dtd")
@@ -87,40 +116,70 @@ class Podcast(object):
 ###
 # WSGI/HTTP stuff
 ###
-from wsgiref.util import request_uri
+from wsgiref.util import request_uri, application_uri
 import re
 
-def send_not_found(environ, *ignored):
-    resp = environ["PATH_INFO"] + " not found." 
-    headers = [('Content-type', 'text/plain')]
-    return "404 Not Found", headers, [resp]
+class Dir2PodcastWsgiApp(object):
 
-urls = [
-    ("^favicon.ico$", send_not_found),
-]
+    urls = [
+        (r"^$", "send_podcast_list"),
+        (r"^([^/]*)/?$", "send_podcast"),
+        (r"^([^/]*)/(.*)$", "send_file"),
+    ]
+    urls = [ (re.compile(regex), url) for regex, url in urls ]
 
-def dir2podcast_app(environ, start_response):
-    url = environ["PATH_INFO"][1:]
-    handler = send_not_found
-    args = []
-    for regex, handler in urls:
-        match = re.match(regex, url)
-        if match:
-            args = match.groups()
-            break
+    def __init__(self, podcasts):
+        # podcasts = [ (name, Podcast), ... ]
+        self.podcasts = dict(podcasts)
 
-    try:
-        status, headers, data = handler(environ, *args)
-    except Exception, e:
-        status = "500 Internal error"
+    def send_not_found(self, environ, *ignored):
+        resp = environ["PATH_INFO"] + " not found." 
         headers = [('Content-type', 'text/plain')]
-        data = [ str(e) ]
+        return "404 Not Found", headers, [resp]
 
-    start_response(status, headers)
-    return data
+    def send_podcast(self, environ, podcast_name):
+        if podcast_name not in self.podcasts:
+            return self.send_not_found(environ)
+        baseurl = application_uri(environ) + podcast_name + "/"
+        podcast = self.podcasts[podcast_name]
+        return "200 OK", [], podcast.xml(baseurl)
+
+    def send_file(self, environ, podcast_name, file_name):
+        if podcast_name not in self.podcasts:
+            return self.send_not_found(environ)
+        data = self.podcasts[podcast_name].iter_file(file_name)
+        if data is None:
+            return self.send_not_found(environ)
+        return "200 OK", [], data
+
+    def handle_request(self, environ, start_response):
+        url = environ["PATH_INFO"][1:]
+
+        handler = self.send_not_found
+        args = []
+        for regex, handler_name in self.urls:
+            match = re.match(regex, url)
+            if match:
+                handler = getattr(self, handler_name)
+                args = match.groups()
+                break
+
+        try:
+            status, headers, data = handler(environ, *args)
+        except Exception, e:
+            status = "500 Internal error"
+            headers = [('Content-type', 'text/plain')]
+            import traceback, sys
+            tb = traceback.format_exc() #TRACEBACK
+            data = [ tb, str(e) ]
+
+        start_response(status, headers)
+        return data
 
 
 def main():
     from wsgiref.simple_server import make_server
-    httpd = make_server('', 8000, dir2podcast_app)
+    podcasts = [ ("test", Podcast(".")) ]
+    app = Dir2PodcastWsgiApp(podcasts)
+    httpd = make_server('', 8000, app.handle_request)
     httpd.serve_forever()
