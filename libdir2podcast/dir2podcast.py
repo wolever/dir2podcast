@@ -2,13 +2,19 @@
 from __future__ import with_statement
 
 import sys
+import os
+import urllib
+import logging
+import traceback
 from os import path
 from xml.dom.minidom import Document, Element, Text
 
 sys.path.insert(0, path.join(path.dirname(__file__), "libs/"))
 
 from mutagen.easyid3 import EasyID3
-from mutagen.mp3 import MP3
+from mutagen.mp3 import MP3, error as mp3_error
+
+log = logging.getLogger()
 
 def seconds2duration(seconds):
     return "%d:%02d" %(seconds / 60, seconds % 60)
@@ -52,7 +58,11 @@ class Podcast(object):
         self.title = path.basename(self.dir)
 
     def _find_files(self):
-        yield "test.mp3"
+        for dirpath, dirnames, filenames in os.walk(self.dir):
+            for file in filenames:
+                if file.endswith(".mp3"):
+                    yield path.join(dirpath, file)
+
 
     def _abs_path(self, file):
         file = path.realpath(file)
@@ -67,7 +77,12 @@ class Podcast(object):
         return file[len(self.dir)+1:]
 
     def file2item(self, baseurl, file):
-        audio = MP3(self._abs_path(file), ID3=EasyID3)
+        try:
+            audio = MP3(self._abs_path(file), ID3=EasyID3)
+        except mp3_error as e:
+            log.warning("Error encountered while loading %r: %r", file, e)
+            return None
+
         def val(key):
             if key not in audio:
                 return None
@@ -77,24 +92,28 @@ class Podcast(object):
             return val
 
         item = EzElement("item")
-        item["title"] = val("title") or path.basename(file)
+        item["title"] = val("title") or self._rel_path(file)
         item["itunes:author"] = val("artist") or None
         item["itunes:subtitle"] = val("album") or None
         item["itunes:duration"] = seconds2duration(audio.info.length)
         item["guid"] = self._abs_path(file)
-        item["enclosure"] = {"url": baseurl + self._rel_path(file)}
+        url = baseurl + urllib.quote_plus(self._rel_path(file))
+        item["enclosure"] = {"url": url}
 
         return item
 
     def iter_file(self, file):
+        file = urllib.unquote_plus(file)
+        file = self.dir + "/" + file
         file = self._abs_path(file)
+        size = os.stat(file).st_size
         def iterfile():
             with open(file) as f:
                 data = f.read(1024)
                 while data:
                     yield data
                     data = f.read(1024)
-        return iterfile()
+        return size, iterfile()
 
     def xml(self, baseurl):
         channel = EzElement("channel")
@@ -102,6 +121,8 @@ class Podcast(object):
 
         for file in self._find_files():
             item = self.file2item(baseurl, file)
+            if item is None:
+                continue
             channel.appendChild(item)
 
         rss = Element("rss")
@@ -116,7 +137,7 @@ class Podcast(object):
 ###
 # WSGI/HTTP stuff
 ###
-from wsgiref.util import request_uri, application_uri
+from wsgiref.util import application_uri
 import re
 
 class Dir2PodcastWsgiApp(object):
@@ -147,10 +168,11 @@ class Dir2PodcastWsgiApp(object):
     def send_file(self, environ, podcast_name, file_name):
         if podcast_name not in self.podcasts:
             return self.send_not_found(environ)
-        data = self.podcasts[podcast_name].iter_file(file_name)
+        podcast = self.podcasts[podcast_name]
+        size, data = podcast.iter_file(file_name)
         if data is None:
             return self.send_not_found(environ)
-        return "200 OK", [], data
+        return "200 OK", [("Content-length", str(size))], data
 
     def handle_request(self, environ, start_response):
         url = environ["PATH_INFO"][1:]
@@ -169,17 +191,30 @@ class Dir2PodcastWsgiApp(object):
         except Exception, e:
             status = "500 Internal error"
             headers = [('Content-type', 'text/plain')]
-            import traceback, sys
-            tb = traceback.format_exc() #TRACEBACK
+            tb = traceback.format_exc()
             data = [ tb, str(e) ]
+            log.exception("Error encountered while processing request:")
 
         start_response(status, headers)
         return data
 
 
 def main():
+    logging.basicConfig()
     from wsgiref.simple_server import make_server
-    podcasts = [ ("test", Podcast(".")) ]
+    import sys
+    if len(sys.argv) < 2:
+        print "Usage: %s DIRECTORY [DIRECTORY ...]" %(sys.argv[0], )
+        return 1
+
+    podcasts = []
+    for arg in sys.argv[1:]:
+        dir = path.realpath(arg)
+        name = path.basename(dir)
+        podcast = Podcast(dir)
+        podcasts.append((name, podcast))
+        print "http://0.0.0.0:9431/" + name
+
     app = Dir2PodcastWsgiApp(podcasts)
-    httpd = make_server('', 8000, app.handle_request)
+    httpd = make_server('0.0.0.0', 9431, app.handle_request)
     httpd.serve_forever()
