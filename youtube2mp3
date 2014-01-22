@@ -1,0 +1,31 @@
+#!/bin/bash
+
+IFS="`printf "\n\t"`"
+set -eu
+
+TEMPDIR="$PWD" outputdir="$(mktemp -d youtube2mp3-XXXX)"
+trap "rm -rf '$PWD/$outputdir' 2>&1 > /dev/null" EXIT
+
+if [[ -z "${1-}" ]]; then
+    echo "usage: $0 YOUTUBE_URL [YOUTUBE_URL ...]"
+    exit 1
+fi
+
+while [[ "$#" -gt 0 ]]; do
+    url="$1"
+    shift
+
+    if [[ -d "$outputdir" ]]; then
+        rm -r "$outputdir"
+    fi
+    mkdir "$outputdir"
+    pushd "$outputdir" > /dev/null
+    youtube-dl --format=worst -v "$url"
+    video="$(echo *)"
+    audio="${video%.*}.mp3"
+    avconv -i "$video" "$audio"
+    popd > /dev/null
+    mv "$outputdir/$audio" .
+    echo "SAVED: $audio"
+    rm -r "$outputdir"
+done
