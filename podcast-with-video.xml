@@ -1,0 +1,655 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- generator="podbean/3.2" -->
+<rss version="2.0"
+xmlns:content="http://purl.org/rss/1.0/modules/content/"
+xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+xmlns:dc="http://purl.org/dc/elements/1.1/"
+xmlns:atom="http://www.w3.org/2005/Atom"
+xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>The REL Show</title>
+    <atom:link href="http://jasonshelton.podbean.com/feed/"
+    rel="self" type="application/rss+xml" />
+    <link>http://jasonshelton.podbean.com</link>
+    <description>The REL Show</description>
+    <pubDate>Mon, 20 Jan 2014 22:52:45 +0000</pubDate>
+    <generator>http://podbean.com/?v=3.2</generator>
+    <language>en</language>
+    <!-- podcast_generator="Podbean Engine/5.0" -->
+    <copyright>Copyright 2013 . All rights reserved.</copyright>
+    <category>General</category>
+    <ttl>1440</ttl>
+    <itunes:keywords></itunes:keywords>
+    <itunes:subtitle>The REL Show</itunes:subtitle>
+    <itunes:summary>Swedish born music star and fashion designer,
+    ARIEL (pronounced R-E-L), brings her inspirational how to's and
+    motivating ideas to help you DIY in every area of your life.
+    From touring the world with Icon For Hire to running her
+    fashion line Custom Catastrophes, welcome to THE REL
+    SHOW!</itunes:summary>
+    <itunes:author>The REL Show</itunes:author>
+    <itunes:category text="Music" />
+    <itunes:owner>
+      <itunes:name>The REL Show</itunes:name>
+      <itunes:email>jasonshelton777@gmail.com</itunes:email>
+    </itunes:owner>
+    <itunes:block>No</itunes:block>
+    <itunes:explicit>Clean</itunes:explicit>
+    <itunes:image href="http://img.podbean.com/itunes-logo/639455/relshow.png" />
+    <image>
+      <url>
+      http://img.podbean.com/itunes-logo/639455/relshow.png</url>
+      <title>The REL Show</title>
+      <link>http://jasonshelton.podbean.com</link>
+      <width>144</width>
+      <height>144</height>
+    </image>
+    <item>
+      <title>Living a Creative Life</title>
+      <link>
+      http://jasonshelton.podbean.com/2014/01/20/living-a-creative-life/</link>
+      <comments>
+      http://jasonshelton.podbean.com/2014/01/20/living-a-creative-life/#comments</comments>
+      <pubDate>Mon, 20 Jan 2014 22:52:45 +0000</pubDate>
+      <dc:creator>jasonshelton</dc:creator>
+      <category>Uncategorized</category>
+      <guid isPermaLink="false">
+      http://jasonshelton.podbean.com/2014/01/20/living-a-creative-life/</guid>
+      <description>
+        <![CDATA[I sit down with Jess (livethehappy.com) to dream up some ways to embrace creativity in everyday life!
+ [...]]]>
+</description>
+      <content:encoded>
+        <![CDATA[I sit down with Jess (livethehappy.com) to dream up some ways to embrace creativity in everyday life!
+]]>
+</content:encoded>
+      <wfw:commentRss>
+      http://jasonshelton.podbean.com/2014/01/20/living-a-creative-life/feed/</wfw:commentRss>
+      <enclosure url="http://jasonshelton.podbean.com/mf/feed/9cadef/Episode11LivingaCreativeLife12014.mp4"
+      length="229784779" type="audio/mpeg" />
+      <media:thumbnail url="http://jasonshelton.podbean.com/mf/web/cj7x6h/relshow.png" />
+      <itunes:subtitle>I sit down with Jess (livethehappy.com) to
+      dream up some ways to embrace creativity in everyday
+      life!</itunes:subtitle>
+      <itunes:summary>I sit down with Jess (livethehappy.com) to
+      dream up some ways to embrace creativity in everyday
+      life!</itunes:summary>
+      <itunes:keywords />
+      <itunes:author>The REL Show</itunes:author>
+      <itunes:explicit>Clean</itunes:explicit>
+      <itunes:block>No</itunes:block>
+      <media:content url="http://jasonshelton.podbean.com/mf/web/cj7x6h/relshow.png"
+      medium="image">
+        <media:title type="html">Living a Creative
+        Life</media:title>
+      </media:content>
+    </item>
+    <item>
+      <title>Full-Time Fabulous</title>
+      <link>
+      http://jasonshelton.podbean.com/2014/01/13/full-time-fabulous/</link>
+      <comments>
+      http://jasonshelton.podbean.com/2014/01/13/full-time-fabulous/#comments</comments>
+      <pubDate>Tue, 14 Jan 2014 03:03:32 +0000</pubDate>
+      <dc:creator>jasonshelton</dc:creator>
+      <category>Uncategorized</category>
+      <guid isPermaLink="false">
+      http://jasonshelton.podbean.com/2014/01/13/full-time-fabulous/</guid>
+      <description>
+        <![CDATA[How to step up the fabulous this year!
+
+ [...]]]>
+</description>
+      <content:encoded>
+        <![CDATA[How to step up the fabulous this year!
+
+]]>
+</content:encoded>
+      <wfw:commentRss>
+      http://jasonshelton.podbean.com/2014/01/13/full-time-fabulous/feed/</wfw:commentRss>
+      <enclosure url="http://jasonshelton.podbean.com/mf/feed/sj5jtk/Episode1011314Full-TimeFabulous.mp4"
+      length="147025900" type="audio/mpeg" />
+      <media:thumbnail url="http://jasonshelton.podbean.com/mf/web/cj7x6h/relshow.png" />
+      <itunes:subtitle>How to step up the fabulous this
+      year!</itunes:subtitle>
+      <itunes:summary>How to step up the fabulous this
+      year!</itunes:summary>
+      <itunes:keywords />
+      <itunes:author>The REL Show</itunes:author>
+      <itunes:explicit>Clean</itunes:explicit>
+      <itunes:block>No</itunes:block>
+      <media:content url="http://jasonshelton.podbean.com/mf/web/cj7x6h/relshow.png"
+      medium="image">
+        <media:title type="html">Full-Time Fabulous</media:title>
+      </media:content>
+    </item>
+    <item>
+      <title>My Style Philosophy</title>
+      <link>
+      http://jasonshelton.podbean.com/2014/01/03/my-style-philosophy/</link>
+      <comments>
+      http://jasonshelton.podbean.com/2014/01/03/my-style-philosophy/#comments</comments>
+      <pubDate>Sat, 04 Jan 2014 00:40:55 +0000</pubDate>
+      <dc:creator>jasonshelton</dc:creator>
+      <category>Uncategorized</category>
+      <guid isPermaLink="false">
+      http://jasonshelton.podbean.com/2014/01/03/my-style-philosophy/</guid>
+      <description>
+        <![CDATA[Rejecting fashion in favor of self-expression.
+
+ [...]]]>
+</description>
+      <content:encoded>
+        <![CDATA[Rejecting fashion in favor of self-expression.
+
+]]>
+</content:encoded>
+      <wfw:commentRss>
+      http://jasonshelton.podbean.com/2014/01/03/my-style-philosophy/feed/</wfw:commentRss>
+      <enclosure url="http://jasonshelton.podbean.com/mf/feed/mmbhrv/Episode91314MyStylePhilosophy.mov"
+      length="102831107" type="video/quicktime" />
+      <media:thumbnail url="http://www.podbean.com/home/images/click-to-play.gif" />
+      <itunes:subtitle>Rejecting fashion in favor of
+      self-expression.</itunes:subtitle>
+      <itunes:summary>Rejecting fashion in favor of
+      self-expression.</itunes:summary>
+      <itunes:keywords />
+      <itunes:author>The REL Show</itunes:author>
+      <itunes:explicit>Clean</itunes:explicit>
+      <itunes:block>No</itunes:block>
+    </item>
+    <item>
+      <title>Attacking 2014 with Intentionality</title>
+      <link>
+      http://jasonshelton.podbean.com/2013/12/22/attacking-2014-with-intentionality/</link>
+      <comments>
+      http://jasonshelton.podbean.com/2013/12/22/attacking-2014-with-intentionality/#comments</comments>
+      <pubDate>Mon, 23 Dec 2013 02:02:20 +0000</pubDate>
+      <dc:creator>jasonshelton</dc:creator>
+      <category>Uncategorized</category>
+      <guid isPermaLink="false">
+      http://jasonshelton.podbean.com/2013/12/22/attacking-2014-with-intentionality/</guid>
+      <description>
+        <![CDATA[I talk with my friend Jess about the right and wrong ways to dream for the new year! Jess can be found at livethehappy.com
+ [...]]]>
+</description>
+      <content:encoded>
+        <![CDATA[I talk with my friend Jess about the right and wrong ways to dream for the new year! Jess can be found at livethehappy.com
+]]>
+</content:encoded>
+      <wfw:commentRss>
+      http://jasonshelton.podbean.com/2013/12/22/attacking-2014-with-intentionality/feed/</wfw:commentRss>
+      <enclosure url="http://jasonshelton.podbean.com/mf/feed/prifn7/Episode8122213.mp4"
+      length="96946808" type="audio/mpeg" />
+      <media:thumbnail url="http://www.podbean.com/home/images/click-to-play.gif" />
+      <itunes:subtitle>I talk with my friend Jess about the right
+      and wrong ways to dream for the new year! Jess can be found
+      at livethehappy.com</itunes:subtitle>
+      <itunes:summary>I talk with my friend Jess about the right
+      and wrong ways to dream for the new year! Jess can be found
+      at livethehappy.com</itunes:summary>
+      <itunes:keywords />
+      <itunes:author>The REL Show</itunes:author>
+      <itunes:explicit>Clean</itunes:explicit>
+      <itunes:block>No</itunes:block>
+    </item>
+    <item>
+      <title>Coming Home for Christmas: Sweden</title>
+      <link>
+      http://jasonshelton.podbean.com/2013/12/16/coming-home-for-christmas-sweden/</link>
+      <comments>
+      http://jasonshelton.podbean.com/2013/12/16/coming-home-for-christmas-sweden/#comments</comments>
+      <pubDate>Mon, 16 Dec 2013 22:30:08 +0000</pubDate>
+      <dc:creator>jasonshelton</dc:creator>
+      <category>Uncategorized</category>
+      <guid isPermaLink="false">
+      http://jasonshelton.podbean.com/2013/12/16/coming-home-for-christmas-sweden/</guid>
+      <description>
+        <![CDATA[Come with me as I show you around my homeland and share some of my favorite Swedish Christmas traditions with you!
+
+ [...]]]>
+</description>
+      <content:encoded>
+        <![CDATA[Come with me as I show you around my homeland and share some of my favorite Swedish Christmas traditions with you!
+
+]]>
+</content:encoded>
+      <wfw:commentRss>
+      http://jasonshelton.podbean.com/2013/12/16/coming-home-for-christmas-sweden/feed/</wfw:commentRss>
+      <enclosure url="http://jasonshelton.podbean.com/mf/feed/r99a5k/Episode7121613ChristmasEpisode.mp4"
+      length="149709196" type="audio/mpeg" />
+      <media:thumbnail url="http://www.podbean.com/home/images/click-to-play.gif" />
+      <itunes:subtitle>Come with me as I show you around my
+      homeland and share some of my favorite Swedish Christmas
+      traditions with you!</itunes:subtitle>
+      <itunes:summary>Come with me as I show you around my homeland
+      and share some of my favorite Swedish Christmas traditions
+      with you!</itunes:summary>
+      <itunes:keywords />
+      <itunes:author>The REL Show</itunes:author>
+      <itunes:explicit>Clean</itunes:explicit>
+      <itunes:block>No</itunes:block>
+    </item>
+    <item>
+      <title>T-shirt shrinking tutorial</title>
+      <link>
+      http://jasonshelton.podbean.com/2013/12/10/t-shirt-shrinking-tutorial/</link>
+      <comments>
+      http://jasonshelton.podbean.com/2013/12/10/t-shirt-shrinking-tutorial/#comments</comments>
+      <pubDate>Tue, 10 Dec 2013 05:11:46 +0000</pubDate>
+      <dc:creator>jasonshelton</dc:creator>
+      <category>Uncategorized</category>
+      <guid isPermaLink="false">
+      http://jasonshelton.podbean.com/2013/12/10/t-shirt-shrinking-tutorial/</guid>
+      <description>
+        <![CDATA[A fool proof way to make any top in your closet fit you perfectly.
+
+ [...]]]>
+</description>
+      <content:encoded>
+        <![CDATA[A fool proof way to make any top in your closet fit you perfectly.
+
+]]>
+</content:encoded>
+      <wfw:commentRss>
+      http://jasonshelton.podbean.com/2013/12/10/t-shirt-shrinking-tutorial/feed/</wfw:commentRss>
+      <enclosure url="http://jasonshelton.podbean.com/mf/feed/dyitdr/Episode612913tshirt.mp4"
+      length="207662055" type="audio/mpeg" />
+      <media:thumbnail url="http://www.podbean.com/home/images/click-to-play.gif" />
+      <itunes:subtitle>A fool proof way to make any top in your
+      closet fit you perfectly.</itunes:subtitle>
+      <itunes:summary>A fool proof way to make any top in your
+      closet fit you perfectly.</itunes:summary>
+      <itunes:keywords />
+      <itunes:author>The REL Show</itunes:author>
+      <itunes:explicit>Clean</itunes:explicit>
+      <itunes:block>No</itunes:block>
+    </item>
+    <item>
+      <title>How to make your very own infinity scarf!</title>
+      <link>
+      http://jasonshelton.podbean.com/2013/12/03/how-to-make-your-very-own-infinity-scarf/</link>
+      <comments>
+      http://jasonshelton.podbean.com/2013/12/03/how-to-make-your-very-own-infinity-scarf/#comments</comments>
+      <pubDate>Tue, 03 Dec 2013 15:07:36 +0000</pubDate>
+      <dc:creator>jasonshelton</dc:creator>
+      <category>Uncategorized</category>
+      <guid isPermaLink="false">
+      http://jasonshelton.podbean.com/2013/12/03/how-to-make-your-very-own-infinity-scarf/</guid>
+      <description>
+        <![CDATA[REL stars in DIY Network&#8217;s &#8220;Sewing With Flames&#8221;.
+
+ [...]]]>
+</description>
+      <content:encoded>
+        <![CDATA[REL stars in DIY Network&#8217;s &#8220;Sewing With Flames&#8221;.
+
+]]>
+</content:encoded>
+      <wfw:commentRss>
+      http://jasonshelton.podbean.com/2013/12/03/how-to-make-your-very-own-infinity-scarf/feed/</wfw:commentRss>
+      <enclosure url="http://jasonshelton.podbean.com/mf/feed/bypm2/infinityscarf.mov"
+      length="580423148" type="video/quicktime" />
+      <media:thumbnail url="http://jasonshelton.podbean.com/mf/web/cj7x6h/relshow.png" />
+      <itunes:subtitle>REL stars in DIY Network's "Sewing With
+      Flames".</itunes:subtitle>
+      <itunes:summary>REL stars in DIY Network's "Sewing With
+      Flames".</itunes:summary>
+      <itunes:keywords />
+      <itunes:author>The REL Show</itunes:author>
+      <itunes:explicit>Clean</itunes:explicit>
+      <itunes:block>No</itunes:block>
+      <media:content url="http://jasonshelton.podbean.com/mf/web/cj7x6h/relshow.png"
+      medium="image">
+        <media:title type="html">How to make your very own infinity
+        scarf!</media:title>
+      </media:content>
+    </item>
+    <item>
+      <title>Road Life</title>
+      <link>
+      http://jasonshelton.podbean.com/2013/11/26/road-life/</link>
+      <comments>
+      http://jasonshelton.podbean.com/2013/11/26/road-life/#comments</comments>
+      <pubDate>Tue, 26 Nov 2013 14:28:26 +0000</pubDate>
+      <dc:creator>jasonshelton</dc:creator>
+      <category>Uncategorized</category>
+      <guid isPermaLink="false">
+      http://jasonshelton.podbean.com/2013/11/26/road-life/</guid>
+      <description>
+        <![CDATA[I&#8217;m taking you backstage and answering your questions about touring.
+
+ [...]]]>
+</description>
+      <content:encoded>
+        <![CDATA[I&#8217;m taking you backstage and answering your questions about touring.
+
+]]>
+</content:encoded>
+      <wfw:commentRss>
+      http://jasonshelton.podbean.com/2013/11/26/road-life/feed/</wfw:commentRss>
+      <enclosure url="http://jasonshelton.podbean.com/mf/feed/thedgp/Episode5112513RoadLife.mp4"
+      length="181578856" type="audio/mpeg" />
+      <media:thumbnail url="http://www.podbean.com/home/images/click-to-play.gif" />
+      <itunes:subtitle>I'm taking you backstage and answering your
+      questions about touring.</itunes:subtitle>
+      <itunes:summary>I'm taking you backstage and answering your
+      questions about touring.</itunes:summary>
+      <itunes:keywords />
+      <itunes:author>The REL Show</itunes:author>
+      <itunes:explicit>Clean</itunes:explicit>
+      <itunes:block>No</itunes:block>
+    </item>
+    <item>
+      <title>Musings From a Dive Bar</title>
+      <link>
+      http://jasonshelton.podbean.com/2013/11/19/musings-from-a-dive-bar/</link>
+      <comments>
+      http://jasonshelton.podbean.com/2013/11/19/musings-from-a-dive-bar/#comments</comments>
+      <pubDate>Tue, 19 Nov 2013 16:50:56 +0000</pubDate>
+      <dc:creator>jasonshelton</dc:creator>
+      <category>Uncategorized</category>
+      <guid isPermaLink="false">
+      http://jasonshelton.podbean.com/2013/11/19/musings-from-a-dive-bar/</guid>
+      <description>
+        <![CDATA[Musings From a Dive Bar
+
+ [...]]]>
+</description>
+      <content:encoded>
+        <![CDATA[Musings From a Dive Bar
+
+]]>
+</content:encoded>
+      <wfw:commentRss>
+      http://jasonshelton.podbean.com/2013/11/19/musings-from-a-dive-bar/feed/</wfw:commentRss>
+      <enclosure url="http://jasonshelton.podbean.com/mf/feed/m9wx2u/Episode4111813MusingsFromaDiveBar.mp4"
+      length="138756694" type="audio/mpeg" />
+      <media:thumbnail url="http://jasonshelton.podbean.com/mf/web/cj7x6h/relshow.png" />
+      <itunes:subtitle>Musings From a Dive Bar</itunes:subtitle>
+      <itunes:summary>Musings From a Dive Bar</itunes:summary>
+      <itunes:keywords />
+      <itunes:author>The REL Show</itunes:author>
+      <itunes:explicit>Clean</itunes:explicit>
+      <itunes:block>No</itunes:block>
+      <media:content url="http://jasonshelton.podbean.com/mf/web/cj7x6h/relshow.png"
+      medium="image">
+        <media:title type="html">Musings From a Dive
+        Bar</media:title>
+      </media:content>
+    </item>
+    <item>
+      <title>What I wish I&#8217;d known in High School</title>
+      <link>
+      http://jasonshelton.podbean.com/2013/11/12/what-i-wish-id-known-in-high-school/</link>
+      <comments>
+      http://jasonshelton.podbean.com/2013/11/12/what-i-wish-id-known-in-high-school/#comments</comments>
+      <pubDate>Tue, 12 Nov 2013 05:14:09 +0000</pubDate>
+      <dc:creator>jasonshelton</dc:creator>
+      <category>Uncategorized</category>
+      <guid isPermaLink="false">
+      http://jasonshelton.podbean.com/2013/11/12/what-i-wish-id-known-in-high-school/</guid>
+      <description>
+        <![CDATA[Things I would have done differently
+ [...]]]>
+</description>
+      <content:encoded>
+        <![CDATA[Things I would have done differently
+]]>
+</content:encoded>
+      <wfw:commentRss>
+      http://jasonshelton.podbean.com/2013/11/12/what-i-wish-id-known-in-high-school/feed/</wfw:commentRss>
+      <enclosure url="http://jasonshelton.podbean.com/mf/feed/fb9f23/WhatIWishIdKnowninHighSchool.mp4"
+      length="172002201" type="audio/mpeg" />
+      <media:thumbnail url="http://www.podbean.com/home/images/click-to-play.gif" />
+      <itunes:subtitle>Things I would have done
+      differently</itunes:subtitle>
+      <itunes:summary>Things I would have done
+      differently</itunes:summary>
+      <itunes:keywords />
+      <itunes:author>The REL Show</itunes:author>
+      <itunes:explicit>Clean</itunes:explicit>
+      <itunes:block>No</itunes:block>
+    </item>
+    <item>
+      <title>Some is better than None</title>
+      <link>
+      http://jasonshelton.podbean.com/2013/11/05/some-is-better-than-none/</link>
+      <comments>
+      http://jasonshelton.podbean.com/2013/11/05/some-is-better-than-none/#comments</comments>
+      <pubDate>Tue, 05 Nov 2013 05:18:48 +0000</pubDate>
+      <dc:creator>jasonshelton</dc:creator>
+      <category>Uncategorized</category>
+      <guid isPermaLink="false">
+      http://jasonshelton.podbean.com/2013/11/05/some-is-better-than-none/</guid>
+      <description>
+        <![CDATA[Some is better than None
+
+ [...]]]>
+</description>
+      <content:encoded>
+        <![CDATA[Some is better than None
+
+]]>
+</content:encoded>
+      <wfw:commentRss>
+      http://jasonshelton.podbean.com/2013/11/05/some-is-better-than-none/feed/</wfw:commentRss>
+      <enclosure url="http://jasonshelton.podbean.com/mf/feed/jykh7/Episode311413SomeisbetterthanNone.mp4"
+      length="163928176" type="audio/mpeg" />
+      <media:thumbnail url="http://www.podbean.com/home/images/click-to-play.gif" />
+      <itunes:subtitle>Some is better than None</itunes:subtitle>
+      <itunes:summary>Some is better than None</itunes:summary>
+      <itunes:keywords />
+      <itunes:author>The REL Show</itunes:author>
+      <itunes:explicit>Clean</itunes:explicit>
+      <itunes:block>No</itunes:block>
+    </item>
+    <item>
+      <title>Songwriting</title>
+      <link>
+      http://jasonshelton.podbean.com/2013/10/28/songwriting/</link>
+      <comments>
+      http://jasonshelton.podbean.com/2013/10/28/songwriting/#comments</comments>
+      <pubDate>Tue, 29 Oct 2013 02:50:06 +0000</pubDate>
+      <dc:creator>jasonshelton</dc:creator>
+      <category>Uncategorized</category>
+      <guid isPermaLink="false">
+      http://jasonshelton.podbean.com/2013/10/28/songwriting/</guid>
+      <description>
+        <![CDATA[Some of my favorite ways to get inspired, and how to surprise yourself with creative genius.
+
+ [...]]]>
+</description>
+      <content:encoded>
+        <![CDATA[Some of my favorite ways to get inspired, and how to surprise yourself with creative genius.
+
+]]>
+</content:encoded>
+      <wfw:commentRss>
+      http://jasonshelton.podbean.com/2013/10/28/songwriting/feed/</wfw:commentRss>
+      <enclosure url="http://jasonshelton.podbean.com/mf/feed/zffqz4/Episode2102813.mp4"
+      length="132445093" type="audio/mpeg" />
+      <media:thumbnail url="http://jasonshelton.podbean.com/mf/web/cj7x6h/relshow.png" />
+      <itunes:subtitle>Some of my favorite ways to get inspired,
+      and how to surprise yourself with creative
+      genius.</itunes:subtitle>
+      <itunes:summary>Some of my favorite ways to get inspired, and
+      how to surprise yourself with creative
+      genius.</itunes:summary>
+      <itunes:keywords />
+      <itunes:author>The REL Show</itunes:author>
+      <itunes:explicit>Clean</itunes:explicit>
+      <itunes:block>No</itunes:block>
+      <media:content url="http://jasonshelton.podbean.com/mf/web/cj7x6h/relshow.png"
+      medium="image">
+        <media:title type="html">Songwriting</media:title>
+      </media:content>
+    </item>
+    <item>
+      <title>Introductions</title>
+      <link>
+      http://jasonshelton.podbean.com/2013/10/23/introductions/</link>
+      <comments>
+      http://jasonshelton.podbean.com/2013/10/23/introductions/#comments</comments>
+      <pubDate>Wed, 23 Oct 2013 23:49:27 +0000</pubDate>
+      <dc:creator>jasonshelton</dc:creator>
+      <category>Uncategorized</category>
+      <guid isPermaLink="false">
+      http://jasonshelton.podbean.com/2013/10/23/introductions/</guid>
+      <description>
+        <![CDATA[Introduction of the REL show.
+
+ [...]]]>
+</description>
+      <content:encoded>
+        <![CDATA[Introduction of the REL show.
+
+]]>
+</content:encoded>
+      <wfw:commentRss>
+      http://jasonshelton.podbean.com/2013/10/23/introductions/feed/</wfw:commentRss>
+      <enclosure url="http://jasonshelton.podbean.com/mf/feed/p6mi9i/Episode1102313.mp4"
+      length="112721804" type="audio/mpeg" />
+      <media:thumbnail url="http://jasonshelton.podbean.com/mf/web/cj7x6h/relshow.png" />
+      <itunes:subtitle>Introduction of the REL
+      show.</itunes:subtitle>
+      <itunes:summary>Introduction of the REL
+      show.</itunes:summary>
+      <itunes:keywords />
+      <itunes:author>The REL Show</itunes:author>
+      <itunes:explicit>Clean</itunes:explicit>
+      <itunes:block>No</itunes:block>
+      <media:content url="http://jasonshelton.podbean.com/mf/web/cj7x6h/relshow.png"
+      medium="image">
+        <media:title type="html">Introductions</media:title>
+      </media:content>
+    </item>
+    <item>
+      <title>3) Make a &#8216;Corset&#8217; T-shirt Dress</title>
+      <link>
+      http://jasonshelton.podbean.com/2013/10/15/diy-3/</link>
+      <comments>
+      http://jasonshelton.podbean.com/2013/10/15/diy-3/#comments</comments>
+      <pubDate>Tue, 15 Oct 2013 19:48:19 +0000</pubDate>
+      <dc:creator>jasonshelton</dc:creator>
+      <category>Uncategorized</category>
+      <guid isPermaLink="false">
+      http://jasonshelton.podbean.com/2013/10/15/diy-3/</guid>
+      <description>
+        <![CDATA[Sewing with Flames (DIY Network) Ariel demonstrates how to make a no-sew corset-effect T-shirt dress.
+
+ [...]]]>
+</description>
+      <content:encoded>
+        <![CDATA[Sewing with Flames (DIY Network) Ariel demonstrates how to make a no-sew corset-effect T-shirt dress.
+
+]]>
+</content:encoded>
+      <wfw:commentRss>
+      http://jasonshelton.podbean.com/2013/10/15/diy-3/feed/</wfw:commentRss>
+      <enclosure url="http://jasonshelton.podbean.com/mf/feed/5y69a/0210501_l3rd.mov"
+      length="220689217" type="video/quicktime" />
+      <media:thumbnail url="http://jasonshelton.podbean.com/mf/web/cj7x6h/relshow.png" />
+      <itunes:subtitle>Sewing with Flames (DIY Network) Ariel
+      demonstrates how to make a no-sew corset-effect T-shirt
+      dress.</itunes:subtitle>
+      <itunes:summary>Sewing with Flames (DIY Network) Ariel
+      demonstrates how to make a no-sew corset-effect T-shirt
+      dress.</itunes:summary>
+      <itunes:keywords />
+      <itunes:author>The REL Show</itunes:author>
+      <itunes:explicit>Clean</itunes:explicit>
+      <itunes:block>No</itunes:block>
+      <media:content url="http://jasonshelton.podbean.com/mf/web/cj7x6h/relshow.png"
+      medium="image">
+        <media:title type="html">3) Make a &#8216;Corset&#8217;
+        T-shirt Dress</media:title>
+      </media:content>
+    </item>
+    <item>
+      <title>2) How to Make a Necktie Purse</title>
+      <link>
+      http://jasonshelton.podbean.com/2013/10/15/diy-2/</link>
+      <comments>
+      http://jasonshelton.podbean.com/2013/10/15/diy-2/#comments</comments>
+      <pubDate>Tue, 15 Oct 2013 05:30:42 +0000</pubDate>
+      <dc:creator>jasonshelton</dc:creator>
+      <category>Uncategorized</category>
+      <guid isPermaLink="false">
+      http://jasonshelton.podbean.com/2013/10/15/diy-2/</guid>
+      <description>
+        <![CDATA[Sewing with Flames (DIY Network) Ariel shows how to make a one-of-a-kind purse out of neckties.
+
+ [...]]]>
+</description>
+      <content:encoded>
+        <![CDATA[Sewing with Flames (DIY Network) Ariel shows how to make a one-of-a-kind purse out of neckties.
+
+]]>
+</content:encoded>
+      <wfw:commentRss>
+      http://jasonshelton.podbean.com/2013/10/15/diy-2/feed/</wfw:commentRss>
+      <enclosure url="http://jasonshelton.podbean.com/mf/feed/bgvqna/0210500_l3rd.mov"
+      length="299750697" type="video/quicktime" />
+      <media:thumbnail url="http://jasonshelton.podbean.com/mf/web/cj7x6h/relshow.png" />
+      <itunes:subtitle>Sewing with Flames (DIY Network) Ariel shows
+      how to make a one-of-a-kind purse out of
+      neckties.</itunes:subtitle>
+      <itunes:summary>Sewing with Flames (DIY Network) Ariel shows
+      how to make a one-of-a-kind purse out of
+      neckties.</itunes:summary>
+      <itunes:keywords />
+      <itunes:author>The REL Show</itunes:author>
+      <itunes:explicit>Clean</itunes:explicit>
+      <itunes:block>No</itunes:block>
+      <media:content url="http://jasonshelton.podbean.com/mf/web/cj7x6h/relshow.png"
+      medium="image">
+        <media:title type="html">2) How to Make a Necktie
+        Purse</media:title>
+      </media:content>
+    </item>
+    <item>
+      <title>1) Make Funky Fabric Flowers</title>
+      <link>
+      http://jasonshelton.podbean.com/2013/10/14/diy-1/</link>
+      <comments>
+      http://jasonshelton.podbean.com/2013/10/14/diy-1/#comments</comments>
+      <pubDate>Tue, 15 Oct 2013 04:58:52 +0000</pubDate>
+      <dc:creator>jasonshelton</dc:creator>
+      <category>Uncategorized</category>
+      <guid isPermaLink="false">
+      http://jasonshelton.podbean.com/2013/10/14/diy-1/</guid>
+      <description>
+        <![CDATA[Sewing with Flames (DIY Network) Ariel shows how to make fast, easy, but oh-so- funky fabric flowers.
+
+ [...]]]>
+</description>
+      <content:encoded>
+        <![CDATA[Sewing with Flames (DIY Network) Ariel shows how to make fast, easy, but oh-so- funky fabric flowers.
+
+]]>
+</content:encoded>
+      <wfw:commentRss>
+      http://jasonshelton.podbean.com/2013/10/14/diy-1/feed/</wfw:commentRss>
+      <enclosure url="http://jasonshelton.podbean.com/mf/feed/imr4e9/0210499_l3rd.mov"
+      length="209483837" type="video/quicktime" />
+      <media:thumbnail url="http://jasonshelton.podbean.com/mf/web/cj7x6h/relshow.png" />
+      <itunes:subtitle>Sewing with Flames (DIY Network) Ariel shows
+      how to make fast, easy, but oh-so- funky fabric
+      flowers.</itunes:subtitle>
+      <itunes:summary>Sewing with Flames (DIY Network) Ariel shows
+      how to make fast, easy, but oh-so- funky fabric
+      flowers.</itunes:summary>
+      <itunes:keywords />
+      <itunes:author>The REL Show</itunes:author>
+      <itunes:explicit>Clean</itunes:explicit>
+      <itunes:block>No</itunes:block>
+      <media:content url="http://jasonshelton.podbean.com/mf/web/cj7x6h/relshow.png"
+      medium="image">
+        <media:title type="html">1) Make Funky Fabric
+        Flowers</media:title>
+      </media:content>
+    </item>
+  </channel>
+</rss>

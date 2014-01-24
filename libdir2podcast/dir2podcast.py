@@ -4,6 +4,7 @@ from __future__ import with_statement
 import sys
 import os
 import urllib
+import hashlib
 import logging
 import traceback
 from os import path
@@ -11,8 +12,8 @@ from xml.dom.minidom import Document, Element, Text
 
 sys.path.insert(0, path.join(path.dirname(__file__), "libs/"))
 
-from mutagen.easyid3 import EasyID3
-from mutagen.mp3 import MP3, error as mp3_error
+from mutagen.mp3 import EasyMP3, error as mp3_error
+from mutagen.mp4 import MP4, error as mp4_error
 
 log = logging.getLogger()
 
@@ -22,6 +23,8 @@ def seconds2duration(seconds):
 def tounicode(s):
     if isinstance(s, unicode):
         return s
+    if not isinstance(s, basestring):
+        return unicode(s)
     try:
         return unicode(s, "utf-8")
     except UnicodeDecodeError:
@@ -52,16 +55,103 @@ class EzElement(Element):
         self.appendChild(child)
 
 
+class PodcastItem(object):
+    def __init__(self, url, file):
+        self.file = file
+        self.url = url
+        self.error = None
+        self.init()
+
+    def init(self):
+        pass
+
+    def guid(self):
+        md5 = hashlib.md5()
+        for hunk in iter((lambda: self.file.read(4096)), ""):
+            md5.update(hunk)
+        self.file.seek(0)
+        return "md5:" + md5.hexdigest()
+
+    def get_xml(self):
+        item = EzElement("item")
+        item["title"] = self.title()
+        item["itunes:author"] = self.author()
+        item["itunes:subtitle"] = self.subtitle()
+        item["itunes:duration"] = seconds2duration(self.length())
+        item["guid"] = self.guid()
+        item["enclosure"] = {
+            "url": self.url,
+            "length": os.path.getsize(self.file.name),
+            "type": self.mimetype(),
+        }
+        return item
+
+
+class MutogenItem(PodcastItem):
+    def init(self):
+        try:
+            self.media = self.mutogen_type(self.file.name)
+        except self.mutogen_error as e:
+            self.error = str(e)
+
+    def media_attr(self, key):
+        if key not in self.media:
+            return None
+        val = self.media[key]
+        if isinstance(val, list) and len(val) > 0:
+            val = val[0]
+        return val
+
+    def mimetype(self):
+        return self.media.mime[0]
+
+    def length(self):
+        return self.media.info.length
+
+    def title(self):
+        return self.media_attr("title") or os.path.basename(self.file.name)
+
+    def author(self):
+        return self.media_attr("artist")
+
+    def subtitle(self):
+        return self.media_attr("album")
+
+
+class VideoPodcastItem(MutogenItem):
+    extensions = ["mov", "mp4"]
+    mutogen_type = MP4
+    mutogen_error = mp4_error
+
+
+class MP3PodcastItem(MutogenItem):
+    extensions = ["mp3"]
+    mutogen_type = EasyMP3
+    mutogen_error = mp3_error
+
+
 class Podcast(object):
+    item_classes = [
+        MP3PodcastItem,
+        VideoPodcastItem,
+    ]
+
     def __init__(self, dir):
         self.dir = path.realpath(dir)
         self.title = path.basename(self.dir)
 
     def _find_files(self):
+        extensions = {}
+        for item_cls in self.item_classes:
+            extensions.update(
+                (ext, item_cls)
+                for ext in item_cls.extensions
+            )
         for dirpath, dirnames, filenames in os.walk(self.dir):
             for file in filenames:
-                if file.endswith(".mp3"):
-                    yield path.join(dirpath, file)
+                _, _, ext = file.partition(".")
+                if ext in extensions:
+                    yield extensions[ext], path.join(dirpath, file)
 
 
     def _abs_path(self, file):
@@ -76,30 +166,12 @@ class Podcast(object):
         file = self._abs_path(file)
         return file[len(self.dir)+1:]
 
-    def file2item(self, baseurl, file):
-        try:
-            audio = MP3(self._abs_path(file), ID3=EasyID3)
-        except mp3_error as e:
-            log.warning("Error encountered while loading %r: %r", file, e)
-            return None
-
-        def val(key):
-            if key not in audio:
-                return None
-            val = audio[key]
-            if isinstance(val, list) and len(val) > 0:
-                val = val[0]
-            return val
-
-        item = EzElement("item")
-        item["title"] = val("title") or self._rel_path(file)
-        item["itunes:author"] = val("artist") or None
-        item["itunes:subtitle"] = val("album") or None
-        item["itunes:duration"] = seconds2duration(audio.info.length)
-        item["guid"] = self._abs_path(file)
+    def file2item(self, ItemCls, baseurl, file):
         url = baseurl + urllib.quote_plus(self._rel_path(file))
-        item["enclosure"] = {"url": url}
-
+        item = ItemCls(url, open(file))
+        if item.error:
+            log.warning("Error loading %r: %r", file, item.error)
+            return None
         return item
 
     def iter_file(self, file):
@@ -119,15 +191,15 @@ class Podcast(object):
         channel = EzElement("channel")
         channel["title"] = self.title
 
-        for file in self._find_files():
-            item = self.file2item(baseurl, file)
+        for item_cls, file in self._find_files():
+            item = self.file2item(item_cls, baseurl, file)
             if item is None:
                 continue
-            channel.appendChild(item)
+            channel.appendChild(item.get_xml())
 
-        rss = Element("rss")
-        rss.setAttribute("xmlns:itunes", "http://www.itunes.com/dtds/podcast-1.0.dtd")
-        rss.setAttribute("version", "2.0")
+        rss = EzElement("rss")
+        rss["xmlns:itunes"] = "http://www.itunes.com/dtds/podcast-1.0.dtd"
+        rss["version"] = "2.0"
         rss.appendChild(channel)
 
         doc = Document()
@@ -141,7 +213,6 @@ from wsgiref.util import application_uri
 import re
 
 class Dir2PodcastWsgiApp(object):
-
     urls = [
         (r"^$", "send_podcast_list"),
         (r"^([^/]*)/?$", "send_podcast"),
@@ -201,7 +272,6 @@ class Dir2PodcastWsgiApp(object):
 
 def main():
     logging.basicConfig()
-    from wsgiref.simple_server import make_server
     import sys
     if len(sys.argv) < 2:
         print "Usage: %s DIRECTORY [DIRECTORY ...]" %(sys.argv[0], )
@@ -215,6 +285,8 @@ def main():
         podcasts.append((name, podcast))
         print "http://0.0.0.0:9431/" + name
 
+    from werkzeug.serving import run_simple
     app = Dir2PodcastWsgiApp(podcasts)
-    httpd = make_server('0.0.0.0', 9431, app.handle_request)
+    httpd = run_simple('0.0.0.0', 9431, app.handle_request,
+                       use_reloader=True, threaded=True)
     httpd.serve_forever()
