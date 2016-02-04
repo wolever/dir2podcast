@@ -8,6 +8,7 @@ import hashlib
 import logging
 import traceback
 from os import path
+from datetime import datetime
 from xml.dom.minidom import Document, Element, Text
 
 sys.path.insert(0, path.join(path.dirname(__file__), "libs/"))
@@ -72,9 +73,14 @@ class PodcastItem(object):
         self.file.seek(0)
         return "md5:" + md5.hexdigest()
 
+    def mtime(self):
+        mtime_int = os.path.getmtime(self.file.name)
+        return datetime.fromtimestamp(mtime_int)
+
     def get_xml(self):
         item = EzElement("item")
         item["title"] = self.title()
+        item["pubDate"] = self.mtime().strftime("%a, %d %b %Y %H:%M:%S +0000")
         item["itunes:author"] = self.author()
         item["itunes:subtitle"] = self.subtitle()
         item["itunes:duration"] = seconds2duration(self.length())
@@ -191,10 +197,16 @@ class Podcast(object):
         channel = EzElement("channel")
         channel["title"] = self.title
 
+        items = []
         for item_cls, file in self._find_files():
             item = self.file2item(item_cls, baseurl, file)
             if item is None:
                 continue
+            items.append(item)
+
+        items.sort(key=lambda i: i.mtime())
+
+        for item in items:
             channel.appendChild(item.get_xml())
 
         rss = EzElement("rss")
@@ -274,7 +286,7 @@ def main():
     logging.basicConfig()
     import sys
     if len(sys.argv) < 2:
-        print "Usage: %s DIRECTORY [DIRECTORY ...]" %(sys.argv[0], )
+        print "Usage: %s [--export] DIRECTORY [DIRECTORY ...]" %(sys.argv[0], )
         return 1
 
     podcasts = []
