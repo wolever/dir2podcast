@@ -1,0 +1,2 @@
+mutagen<2
+werkzeug<1

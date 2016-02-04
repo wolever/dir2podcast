@@ -12,3 +12,6 @@ bin/*
 tags
 *.beam
 *.dump
+build/
+dist/
+*.egg-info
