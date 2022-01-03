@@ -156,6 +156,7 @@ class Podcast(object):
         for dirpath, dirnames, filenames in os.walk(self.dir):
             for file in filenames:
                 _, _, ext = file.partition(".")
+                ext = ext.lower()
                 if ext in extensions:
                     yield extensions[ext], path.join(dirpath, file)
 
